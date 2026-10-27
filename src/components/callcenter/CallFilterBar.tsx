@@ -81,6 +81,9 @@ export function CallFilterBar({ onChange }: { onChange: (f: FilterState) => void
   const clearAll = () => { setPicked(EMPTY); setPhone(''); };
   const count = FILTERS.filter((f) => picked[f.key].length).length + (phone ? 1 : 0);
 
+  const cur = FILTERS.find((f) => f.key === sub);
+const menu = FILTERS.filter((f) => f.label.toLowerCase().includes(q.toLowerCase()));
+
   const range = rangeOf(preset, offset);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { onChange({ range, picked, phone, business }); }, [preset, offset, picked, phone, business]);
